@@ -4,18 +4,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Praveen Steel Corporation | Premium Alloy Steel Trading</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Coming soon...</h1>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">PRAVEEN STEEL <span>CORPORATION</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#grades">Grades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content animate-up">
+                <h1>Precision in Every <br><span>Alloy Profile</span></h1>
+
+                <p>Leading suppliers of premium alloy steel in Round, Square, Flat, and Hex variants. Tailored to your
+                    required diameter and length with industrial precision.</p>
+                <a href="#products" class="btn btn-primary-custom">Explore Products</a>
+                <a href="#contact" class="btn btn-outline-light ms-3 px-4 py-2 fw-semibold">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="bg-light">
+        <div class="container">
+            <div class="section-title animate-up">
+                <h2>Our Steel Profiles</h2>
+
+                <p class="text-muted">High-quality alloy steel in various shapes to fit your engineering needs.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-icon"><i class="fas fa-circle"></i></div>
+                        <h4>Round Bars</h4>
+                        <p>High-tensile round bars for precision machining and structural use.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-icon"><i class="fas fa-square"></i></div>
+                        <h4>Square Bars</h4>
+                        <p>Robust square profiles ideal for shafts, axles, and heavy-duty machinery.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-icon"><i class="fas fa-minus"></i></div>
+                        <h4>Flat Bars</h4>
+                        <p>Versatile flat sections for fabrication and industrial components.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-icon"><i class="fas fa-hexagon"></i></div>
+                        <h4>Hex Bars</h4>
+                        <p>Precision hexagonal bars for specialized fittings and fasteners.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Supply Section -->
+    <section class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Custom Sizing <span class="text-warning">& Supply</span></h2>
+                    <p class="lead opacity-75">We understand that every project has unique requirements. We supply alloy
+                        steel exactly as per your requested <strong>diameter</strong> and <strong>length</strong>.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-3"><i class="fas fa-check-circle text-warning me-2"></i> Custom Length Cutting
+                        </li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-warning me-2"></i> Specific Diameter
+                            Matching</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-warning me-2"></i> Quality Certified Grades
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Placeholder color block representing industrial metal -->
+                    <div
+                        style="height: 300px; background: linear-gradient(45deg, #1e272e, #485460); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-ruler-combined fa-5x text-warning opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grades Section -->
+    <section id="grades">
+        <div class="container">
+            <div class="grades-container animate-up">
+                <div class="section-title">
+                    <h2 class="text-white">Steel Grades We Deal In</h2>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-custom">
+                        <thead>
+                            <tr>
+                                <th>Grade Category</th>
+                                <th>Common Grades</th>
+                                <th>Applications</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alloy Steel</td>
+                                <td>AISI 4140, 4340, 8620</td>
+                                <td>Gears, Shafts, Structural components</td>
+                            </tr>
+                            <tr>
+                                <td>Carbon Steel</td>
+                                <td>EN8, EN9, EN24</td>
+                                <td>Automotive, General Engineering</td>
+                            </tr>
+                            <tr>
+                                <td>Die Steel</td>
+                                <td>D2, D3, H13</td>
+                                <td>Molds, Dies, Tools</td>
+                            </tr>
+                            <tr>
+                                <td>Stainless Steel</td>
+                                <td>304, 316, 410</td>
+                                <td>Chemical plants, Food processing</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-title text-start mb-4">
+                        <h2>Get In Touch</h2>
+                        <p>Contact us for quotes and stock availability.</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+                        <div>
+                            <h6>Our Address</h6>
+                            <p class="mb-0 text-muted">Steel Market, Industrial Estate, [Your City]</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h6>Phone Number</h6>
+                            <p class="mb-0 text-muted">+91 98XXX XXXXX</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h6>Email Address</h6>
+                            <p class="mb-0 text-muted">sales@praveensteel.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form class="p-4 bg-white rounded shadow-sm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" placeholder="John Doe">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="john@example.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Required Grade & Size</label>
+                                <input type="text" class="form-control" placeholder="e.g. EN8 Round 50mm x 3m">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary-custom w-100">Send Inquiry</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2026 Praveen Steel Corporation. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
