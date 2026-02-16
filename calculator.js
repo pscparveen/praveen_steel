@@ -10,12 +10,24 @@ const hexGroup = document.getElementById('hexGroup');
 const weightPerMeterEl = document.getElementById('weightPerMeter');
 const totalWeightEl = document.getElementById('totalWeight');
 const areaEl = document.getElementById('area');
+const formulaTextEl = document.getElementById('formulaText');
 const errorMessage = document.getElementById('errorMessage');
 const errorText = document.getElementById('errorText');
 const calculatorForm = document.getElementById('weightCalculator');
-const presetButtons = document.querySelectorAll('[data-preset-shape]');
 
-const densityFactor = 0.785; // kg per m for 1 cm^2 cross-section
+// Formula display texts for each shape
+const formulas = {
+    round: 'Area = π × (D/2)² = π × D² / 4',
+    pipe: 'Area = π × (OD/2)² - π × (ID/2)² = π × (OD² - ID²) / 4',
+    square: 'Area = Side²',
+    squarePipe: 'Area = OuterSide² - (OuterSide - 2×t)²',
+    flat: 'Area = Width × Thickness',
+    hex: 'Area = (√3 / 2) × AF² = 0.866 × AF²'
+};
+
+const densityFactor = 0.785; // kg per meter for 1 cm² cross-section (steel density 7.85 g/cm³)
+// Weight per meter (kg/m) = Area (cm²) × 0.785
+// Total weight (kg) = Weight/m × Length (m)
 
 const toCm = (value, unit) => {
     if (unit === 'mm') return value / 10;
@@ -95,6 +107,8 @@ const calculateArea = () => {
     const acrossFlats = parseFloat(document.getElementById('hexAcrossFlats').value) || 0;
     const unit = document.getElementById('hexUnit').value;
     const acrossFlatsCm = toCm(acrossFlats, unit);
+    // Hexagon area formula using "across flats" (flat-to-flat distance)
+    // Area = (√3 / 2) × AF² = 0.866 × AF² (in same unit)
     return (Math.sqrt(3) / 2) * acrossFlatsCm * acrossFlatsCm;
 };
 
@@ -168,6 +182,9 @@ unitSelects.forEach((select) => {
 shapeSelect.addEventListener('change', () => {
     toggleFields();
     updateResults();
+    // Update formula text for selected shape
+    const shape = shapeSelect.value;
+    formulaTextEl.innerHTML = formulas[shape] + '<br>Weight = Area × Length × 0.785';
 });
 
 calculatorForm.addEventListener('input', updateResults);
@@ -176,26 +193,8 @@ calculatorForm.addEventListener('submit', (event) => {
     updateResults();
 });
 
-presetButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        const shape = button.getAttribute('data-preset-shape');
-        shapeSelect.value = shape;
-        if (shape === 'round') {
-            document.getElementById('diameter').value = button.getAttribute('data-preset-size');
-            document.getElementById('diameterUnit').value = 'mm';
-        }
-        if (shape === 'flat') {
-            document.getElementById('flatWidth').value = button.getAttribute('data-preset-width');
-            document.getElementById('flatThickness').value = button.getAttribute('data-preset-thickness');
-            document.getElementById('flatWidthUnit').value = 'mm';
-            document.getElementById('flatThicknessUnit').value = 'mm';
-        }
-        document.getElementById('length').value = button.getAttribute('data-preset-length');
-        document.getElementById('lengthUnit').value = 'mm';
-        toggleFields();
-        updateResults();
-    });
-});
-
 toggleFields();
 updateResults();
+// Set initial formula text on page load
+const initialShape = shapeSelect.value;
+formulaTextEl.innerHTML = formulas[initialShape] + '<br>Weight = Area × Length × 0.785';

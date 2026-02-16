@@ -179,10 +179,6 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary-custom w-100">Calculate Weight</button>
-                        <div class="quick-contact mt-3">
-                            <button type="button" class="quick-contact-btn" data-preset-shape="round" data-preset-size="50" data-preset-length="1000">Round 50x1000 mm</button>
-                            <button type="button" class="quick-contact-btn" data-preset-shape="flat" data-preset-width="75" data-preset-thickness="10" data-preset-length="3000">Flat 75x10x3000 mm</button>
-                        </div>
                     </form>
                 </div>
                 <div class="calculator-card result-card">
@@ -201,13 +197,12 @@
                     </div>
                     <div class="result-note">
                         <i class="fas fa-info-circle"></i>
-                        <span>Formula: Weight (kg) = Area (cm²) × Length (m) × 0.785</span>
+                        <span id="formulaText">Formula: Weight (kg) = Area (cm²) × Length (m) × 0.785</span>
                     </div>
                     <div id="errorMessage" class="alert alert-danger d-none mt-3" role="alert">
                         <i class="fas fa-exclamation-triangle me-2"></i>
                         <span id="errorText">Wall thickness cannot exceed 50% of the outer dimension!</span>
                     </div>
-                    <a href="index.html" class="btn btn-outline-dark w-100 mt-3">Back to Home</a>
                 </div>
             </div>
             <div class="calculator-help">
