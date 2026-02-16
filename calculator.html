@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steel Weight Calculator | Praveen Steel Corporation</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="calculator-page">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PRAVEEN STEEL <span>CORPORATION</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#grades">Grades</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculator.html">Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Calculator Hero -->
+    <section class="calculator-hero">
+        <div class="container">
+            <div class="calculator-hero-content">
+                <h1>Steel Weight Calculator</h1>
+                <p>Estimate steel weight instantly for round, square, flat, hex bars and pipes. Select your preferred units for dimensions and length.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h2>Calculate Weight</h2>
+                    <p class="text-muted">Density used: <strong>7.85 g/cm³</strong> (Steel)</p>
+                    <form id="weightCalculator" class="calculator-form">
+                        <div class="form-group">
+                            <label for="shape">Shape</label>
+                            <select id="shape" class="form-select" required>
+                                <option value="round">Round Bar</option>
+                                <option value="pipe">Pipe / Hollow Round</option>
+                                <option value="square">Square Bar</option>
+                                <option value="squarePipe">Square Pipe / Hollow</option>
+                                <option value="flat">Flat Bar</option>
+                                <option value="hex">Hex Bar</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="diameterGroup">
+                            <label for="diameter">Diameter</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="diameter" min="1" step="0.01" value="50"
+                                    required>
+                                <select class="form-select" id="diameterUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="pipeDiameterGroup">
+                            <label for="pipeOuterDiameter">Outer Diameter</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="pipeOuterDiameter" min="1" step="0.01" value="60">
+                                <select class="form-select" id="pipeOuterDiameterUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="pipeThicknessGroup">
+                            <label for="pipeThickness">Wall Thickness</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="pipeThickness" min="0.1" step="0.01" value="5">
+                                <select class="form-select" id="pipeThicknessUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="squarePipeGroup">
+                            <label for="squarePipeOuter">Outer Side</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="squarePipeOuter" min="1" step="0.01" value="60">
+                                <select class="form-select" id="squarePipeOuterUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="squarePipeThicknessGroup">
+                            <label for="squarePipeThickness">Wall Thickness</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="squarePipeThickness" min="0.1" step="0.01" value="5">
+                                <select class="form-select" id="squarePipeThicknessUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="squareGroup">
+                            <label for="squareSize">Side</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="squareSize" min="1" step="0.01" value="50">
+                                <select class="form-select" id="squareUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="flatGroup">
+                            <label for="flatWidth">Width</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="flatWidth" min="1" step="0.01" value="50">
+                                <select class="form-select" id="flatWidthUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                            <label for="flatThickness">Thickness</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="flatThickness" min="1" step="0.01" value="10">
+                                <select class="form-select" id="flatThicknessUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="hexGroup">
+                            <label for="hexAcrossFlats">Across Flats</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="hexAcrossFlats" min="1" step="0.01" value="50">
+                                <select class="form-select" id="hexUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="length">Length</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="length" min="0.1" step="0.01" value="1000"
+                                    required>
+                                <select class="form-select" id="lengthUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="m">m</option>
+                                    <option value="inch">inch</option>
+                                    <option value="ft">ft</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom w-100">Calculate Weight</button>
+                    </form>
+                </div>
+                <div class="calculator-card result-card">
+                    <h2>Results</h2>
+                    <div class="result-item">
+                        <span>Weight per meter</span>
+                        <strong id="weightPerMeter">0.00 kg/m</strong>
+                    </div>
+                    <div class="result-item">
+                        <span>Total weight</span>
+                        <strong id="totalWeight">0.00 kg</strong>
+                    </div>
+                    <div class="result-item">
+                        <span>Cross-sectional area</span>
+                        <strong id="area">0.00 cm²</strong>
+                    </div>
+                    <div class="result-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Formula: Weight (kg) = Area (cm²) × Length (m) × 0.785</span>
+                    </div>
+                    <div id="errorMessage" class="alert alert-danger d-none mt-3" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <span id="errorText">Wall thickness cannot exceed 50% of the outer dimension!</span>
+                    </div>
+                    <a href="index.html" class="btn btn-outline-dark w-100 mt-3">Back to Home</a>
+                </div>
+            </div>
+            <div class="calculator-help">
+                <div>
+                    <h3>Need a custom quote?</h3>
+                    <p>Share the shape, dimensions (diameter/size, wall thickness), length, and steel grade you require.</p>
+                </div>
+                <a href="index.html#contact" class="btn btn-outline-light">Request a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2026 Praveen Steel Corporation. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const shapeSelect = document.getElementById('shape');
+        const diameterGroup = document.getElementById('diameterGroup');
+        const pipeDiameterGroup = document.getElementById('pipeDiameterGroup');
+        const pipeThicknessGroup = document.getElementById('pipeThicknessGroup');
+        const squarePipeGroup = document.getElementById('squarePipeGroup');
+        const squarePipeThicknessGroup = document.getElementById('squarePipeThicknessGroup');
+        const squareGroup = document.getElementById('squareGroup');
+        const flatGroup = document.getElementById('flatGroup');
+        const hexGroup = document.getElementById('hexGroup');
+        const weightPerMeterEl = document.getElementById('weightPerMeter');
+        const totalWeightEl = document.getElementById('totalWeight');
+        const areaEl = document.getElementById('area');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+        const calculatorForm = document.getElementById('weightCalculator');
+
+        const densityFactor = 0.785; // kg per m for 1 cm^2 cross-section
+
+        // Unit conversion helpers: convert to cm
+        const toCm = (value, unit) => {
+            if (unit === 'mm') return value / 10;
+            if (unit === 'cm') return value;
+            if (unit === 'inch') return value * 2.54;
+            return value;
+        };
+
+        // Convert length to meters
+        const toMeters = (value, unit) => {
+            if (unit === 'm') return value;
+            if (unit === 'cm') return value / 100;
+            if (unit === 'mm') return value / 1000;
+            if (unit === 'inch') return value * 0.0254;
+            if (unit === 'ft') return value * 0.3048;
+            return value;
+        };
+
+        const toggleFields = () => {
+            const shape = shapeSelect.value;
+            diameterGroup.classList.toggle('d-none', shape !== 'round');
+            pipeDiameterGroup.classList.toggle('d-none', shape !== 'pipe');
+            pipeThicknessGroup.classList.toggle('d-none', shape !== 'pipe');
+            squarePipeGroup.classList.toggle('d-none', shape !== 'squarePipe');
+            squarePipeThicknessGroup.classList.toggle('d-none', shape !== 'squarePipe');
+            squareGroup.classList.toggle('d-none', shape !== 'square');
+            flatGroup.classList.toggle('d-none', shape !== 'flat');
+            hexGroup.classList.toggle('d-none', shape !== 'hex');
+        };
+
+        const calculateArea = () => {
+            const shape = shapeSelect.value;
+            if (shape === 'round') {
+                const diameter = parseFloat(document.getElementById('diameter').value) || 0;
+                const unit = document.getElementById('diameterUnit').value;
+                const diameterCm = toCm(diameter, unit);
+                const radiusCm = diameterCm / 2;
+                return Math.PI * radiusCm * radiusCm;
+            }
+            if (shape === 'pipe') {
+                const outerDiameter = parseFloat(document.getElementById('pipeOuterDiameter').value) || 0;
+                const thickness = parseFloat(document.getElementById('pipeThickness').value) || 0;
+                const outerUnit = document.getElementById('pipeOuterDiameterUnit').value;
+                const thicknessUnit = document.getElementById('pipeThicknessUnit').value;
+                const outerCm = toCm(outerDiameter, outerUnit);
+                const thicknessCm = toCm(thickness, thicknessUnit);
+                const outerRadiusCm = outerCm / 2;
+                const innerRadiusCm = outerRadiusCm - thicknessCm;
+                return Math.PI * (outerRadiusCm * outerRadiusCm - innerRadiusCm * innerRadiusCm);
+            }
+            if (shape === 'square') {
+                const side = parseFloat(document.getElementById('squareSize').value) || 0;
+                const unit = document.getElementById('squareUnit').value;
+                const sideCm = toCm(side, unit);
+                return sideCm * sideCm;
+            }
+            if (shape === 'squarePipe') {
+                const outerSide = parseFloat(document.getElementById('squarePipeOuter').value) || 0;
+                const thickness = parseFloat(document.getElementById('squarePipeThickness').value) || 0;
+                const outerUnit = document.getElementById('squarePipeOuterUnit').value;
+                const thicknessUnit = document.getElementById('squarePipeThicknessUnit').value;
+                const outerCm = toCm(outerSide, outerUnit);
+                const thicknessCm = toCm(thickness, thicknessUnit);
+                const innerSideCm = outerCm - 2 * thicknessCm;
+                const outerArea = outerCm * outerCm;
+                const innerArea = innerSideCm * innerSideCm;
+                return outerArea - innerArea;
+            }
+            if (shape === 'flat') {
+                const width = parseFloat(document.getElementById('flatWidth').value) || 0;
+                const thickness = parseFloat(document.getElementById('flatThickness').value) || 0;
+                const widthUnit = document.getElementById('flatWidthUnit').value;
+                const thicknessUnit = document.getElementById('flatThicknessUnit').value;
+                const widthCm = toCm(width, widthUnit);
+                const thicknessCm = toCm(thickness, thicknessUnit);
+                return widthCm * thicknessCm;
+            }
+            const acrossFlats = parseFloat(document.getElementById('hexAcrossFlats').value) || 0;
+            const unit = document.getElementById('hexUnit').value;
+            const acrossFlatsCm = toCm(acrossFlats, unit);
+            return (Math.sqrt(3) / 2) * acrossFlatsCm * acrossFlatsCm;
+        };
+
+        const updateResults = () => {
+            const shape = shapeSelect.value;
+            let hasError = false;
+            let errorMsg = '';
+
+            // Validate pipe wall thickness
+            if (shape === 'pipe') {
+                const outerDiameter = parseFloat(document.getElementById('pipeOuterDiameter').value) || 0;
+                const thickness = parseFloat(document.getElementById('pipeThickness').value) || 0;
+                const outerUnit = document.getElementById('pipeOuterDiameterUnit').value;
+                const thicknessUnit = document.getElementById('pipeThicknessUnit').value;
+                const outerCm = toCm(outerDiameter, outerUnit);
+                const thicknessCm = toCm(thickness, thicknessUnit);
+                
+                const thicknessPercent = (thicknessCm / outerCm) * 100;
+                if (thicknessPercent > 50) {
+                    hasError = true;
+                    errorMsg = `Wall thickness (${thicknessPercent.toFixed(1)}%) exceeds 50% of outer diameter! This would result in a negative inner diameter.`;
+                }
+            }
+
+            // Validate square pipe wall thickness
+            if (shape === 'squarePipe') {
+                const outerSide = parseFloat(document.getElementById('squarePipeOuter').value) || 0;
+                const thickness = parseFloat(document.getElementById('squarePipeThickness').value) || 0;
+                const outerUnit = document.getElementById('squarePipeOuterUnit').value;
+                const thicknessUnit = document.getElementById('squarePipeThicknessUnit').value;
+                const outerCm = toCm(outerSide, outerUnit);
+                const thicknessCm = toCm(thickness, thicknessUnit);
+                
+                const thicknessPercent = (thicknessCm / outerCm) * 100;
+                if (thicknessPercent > 50) {
+                    hasError = true;
+                    errorMsg = `Wall thickness (${thicknessPercent.toFixed(1)}%) exceeds 50% of outer side! This would result in a negative inner dimension.`;
+                }
+            }
+
+            // Show or hide error
+            if (hasError) {
+                errorMessage.classList.remove('d-none');
+                errorText.textContent = errorMsg;
+                weightPerMeterEl.textContent = '-- kg/m';
+                totalWeightEl.textContent = '-- kg';
+                areaEl.textContent = '-- cm²';
+                return;
+            } else {
+                errorMessage.classList.add('d-none');
+            }
+
+            const length = parseFloat(document.getElementById('length').value) || 0;
+            const lengthUnit = document.getElementById('lengthUnit').value;
+            const lengthM = toMeters(length, lengthUnit);
+            const area = calculateArea();
+            const weightPerMeter = area * densityFactor;
+            const totalWeight = weightPerMeter * lengthM;
+
+            weightPerMeterEl.textContent = `${weightPerMeter.toFixed(2)} kg/m`;
+            totalWeightEl.textContent = `${totalWeight.toFixed(2)} kg`;
+            areaEl.textContent = `${area.toFixed(2)} cm²`;
+        };
+
+        // Add event listeners for unit changes
+        const unitSelects = calculatorForm.querySelectorAll('select');
+        unitSelects.forEach(select => {
+            select.addEventListener('change', updateResults);
+        });
+
+        shapeSelect.addEventListener('change', () => {
+            toggleFields();
+            updateResults();
+        });
+
+        calculatorForm.addEventListener('input', updateResults);
+        calculatorForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            updateResults();
+        });
+
+        toggleFields();
+        updateResults();
+    </script>
+</body>
+
+</html>
