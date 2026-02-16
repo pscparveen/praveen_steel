@@ -101,13 +101,14 @@ h6,
 
 /* Hero Section */
 .hero {
-    height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     background: var(--steel-gradient);
     color: var(--text-light);
     position: relative;
     overflow: hidden;
+    padding-top: 80px;
 }
 
 .scroll-progress {
