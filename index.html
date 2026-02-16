@@ -8,7 +8,8 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,10 +18,11 @@
 </head>
 
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand" href="#">PRAVEEN STEEL <span>CORPORATION</span></a>
+            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="Praveen Steel Corporation" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,6 +50,20 @@
                     <a href="#products" class="btn btn-primary-custom">Explore Products</a>
                     <a href="#contact" class="btn btn-outline-light px-4 py-2 fw-semibold">Get a Quote</a>
                 </div>
+                <div class="hero-metrics">
+                    <div class="metric-chip">
+                        <span class="metric-value" data-count="4">0</span>
+                        <span class="metric-label">Core Profiles</span>
+                    </div>
+                    <div class="metric-chip">
+                        <span class="metric-value" data-count="100">0</span>
+                        <span class="metric-label">Custom Sizing</span>
+                    </div>
+                    <div class="metric-chip">
+                        <span class="metric-value" data-count="3">0</span>
+                        <span class="metric-label">Grade Categories</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -55,35 +71,35 @@
     <!-- Products Section -->
     <section id="products" class="bg-light">
         <div class="container">
-            <div class="section-title animate-up">
+            <div class="section-title reveal">
                 <h2>Our Steel Profiles</h2>
 
                 <p class="text-muted">High-quality alloy steel in various shapes to fit your engineering needs.</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-3">
-                    <div class="product-card">
+                    <div class="product-card reveal">
                         <div class="product-icon"><i class="fas fa-circle"></i></div>
                         <h4>Round Bars</h4>
                         <p>High-tensile round bars for precision machining and structural use.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="product-card">
+                    <div class="product-card reveal">
                         <div class="product-icon"><i class="fas fa-square"></i></div>
                         <h4>Square Bars</h4>
                         <p>Robust square profiles ideal for shafts, axles, and heavy-duty machinery.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="product-card">
+                    <div class="product-card reveal">
                         <div class="product-icon"><i class="fas fa-minus"></i></div>
                         <h4>Flat Bars</h4>
                         <p>Versatile flat sections for fabrication and industrial components.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="product-card">
+                    <div class="product-card reveal">
                         <div class="product-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2l9.5 5.5v11L12 24l-9.5-5.5v-11L12 2z"/>
@@ -100,7 +116,7 @@
     <!-- Custom Supply Section -->
     <section class="py-5 bg-dark text-white">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center reveal">
                 <div class="col-lg-6">
                     <h2 class="fw-bold mb-4">Custom Sizing <span class="text-warning">& Supply</span></h2>
                     <p class="lead opacity-75">We understand that every project has unique requirements. We supply alloy
@@ -128,7 +144,7 @@
     <!-- Grades Section -->
     <section id="grades">
         <div class="container">
-            <div class="grades-container animate-up">
+            <div class="grades-container reveal">
                 <div class="section-title">
                     <h2 class="text-white">Steel Grades We Deal In</h2>
                 </div>
@@ -158,11 +174,6 @@
                                 <td>D2, D3, H13</td>
                                 <td>Molds, Dies, Tools</td>
                             </tr>
-                            <!-- <tr>
-                                <td>Stainless Steel</td>
-                                <td>304, 316, 410</td>
-                                <td>Chemical plants, Food processing</td>
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -175,25 +186,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
-                    <div class="section-title text-start mb-4">
+                    <div class="section-title text-start mb-4 reveal">
                         <h2>Get In Touch</h2>
                         <p>Contact us for quotes and stock availability.</p>
                     </div>
-                    <div class="info-item">
+                    <div class="info-item reveal">
                         <div class="info-icon"><i class="fas fa-location-dot"></i></div>
                         <div>
                             <h6>Our Address</h6>
                             <p class="mb-0 text-muted">1B-225 B.P. NIT Faridabad, Haryana, India - 121001</p>
                         </div>
                     </div>
-                    <div class="info-item">
+                    <div class="info-item reveal">
                         <div class="info-icon"><i class="fas fa-phone"></i></div>
                         <div>
                             <h6>Phone Number</h6>
                             <p class="mb-0 text-muted">+91 9818700080</p>
                         </div>
                     </div>
-                    <div class="info-item">
+                    <div class="info-item reveal">
                         <div class="info-icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h6>Email Address</h6>
@@ -201,31 +212,14 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-7">
-                    <form class="p-4 bg-white rounded shadow-sm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Name</label>
-                                <input type="text" class="form-control" placeholder="John Doe">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control" placeholder="john@example.com">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Required Grade & Size</label>
-                                <input type="text" class="form-control" placeholder="e.g. EN8 Round 50mm x 3m">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Message</label>
-                                <textarea class="form-control" rows="4"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary-custom w-100">Send Inquiry</button>
-                            </div>
-                        </div>
-                    </form>
-                </div> -->
+                <div class="col-lg-7">
+                    
+                    <div class="quick-contact reveal">
+                        <a href="tel:+919818700080" class="quick-contact-btn"><i class="fas fa-phone"></i> Call Now</a>
+                        <a href="mailto:praveensteel@gmail.com" class="quick-contact-btn"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="https://wa.me/919818700080" class="quick-contact-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -237,18 +231,16 @@
                 <div class="col-md-6">
                     <p class="mb-0">&copy; 2026 Praveen Steel Corporation. All rights reserved.</p>
                 </div>
-                <!-- <div class="col-md-6 text-md-end">
-                    <div class="social-links">
-                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
-                    </div>
-                </div> -->
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="main.js"></script>
 </body>
 
 </html>
