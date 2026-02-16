@@ -159,14 +159,15 @@ const updateResults = () => {
     errorMessage.classList.add('d-none');
     const length = parseFloat(document.getElementById('length').value) || 0;
     const lengthUnit = document.getElementById('lengthUnit').value;
+    const pieces = parseFloat(document.getElementById('pieces').value) || 1;
     const lengthM = toMeters(length, lengthUnit);
     const area = calculateArea();
     const weightPerMeter = area * densityFactor;
-    const totalWeight = weightPerMeter * lengthM;
+    const totalWeight = weightPerMeter * lengthM * pieces;
 
-    weightPerMeterEl.textContent = `${weightPerMeter.toFixed(2)} kg/m`;
-    totalWeightEl.textContent = `${totalWeight.toFixed(2)} kg`;
-    areaEl.textContent = `${area.toFixed(2)} cm²`;
+    weightPerMeterEl.textContent = `${weightPerMeter.toFixed(3)} kg/m`;
+    totalWeightEl.textContent = `${totalWeight.toFixed(3)} kg`;
+    areaEl.textContent = `${area.toFixed(3)} cm²`;
 
     [weightPerMeterEl, totalWeightEl, areaEl].forEach((el) => {
         el.classList.add('flash');
