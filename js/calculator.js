@@ -11,6 +11,7 @@ const cSectionGroup = document.getElementById('cSectionGroup');
 const iSectionGroup = document.getElementById('iSectionGroup');
 const flatHollowGroup = document.getElementById('flatHollowGroup');
 const angleGroup = document.getElementById('angleGroup');
+const densityInput = document.getElementById('density');
 const weightPerMeterEl = document.getElementById('weightPerMeter');
 const totalWeightEl = document.getElementById('totalWeight');
 const areaEl = document.getElementById('area');
@@ -263,7 +264,13 @@ const updateResults = () => {
     const pieces = parseFloat(document.getElementById('pieces').value) || 1;
     const lengthM = toMeters(length, lengthUnit);
     const area = calculateArea();
-    const weightPerMeter = area * densityFactor;
+    const density = parseFloat(densityInput.value) || 7.85;
+    // Area (cm²) * Length (m) * Factor = Weight (kg)
+    // 1 m = 100 cm
+    // Weight (g) = Area (cm²) * 100cm * Density (g/cm³)
+    // Weight (kg) = (Area * 100 * Density) / 1000 = Area * Density * 0.1
+    const dynamicDensityFactor = density * 0.1;
+    const weightPerMeter = area * dynamicDensityFactor;
     const totalWeight = weightPerMeter * lengthM * pieces;
 
     weightPerMeterEl.textContent = `${weightPerMeter.toFixed(3)} kg/m`;
@@ -281,12 +288,16 @@ unitSelects.forEach((select) => {
     select.addEventListener('change', updateResults);
 });
 
+densityInput.addEventListener('input', updateResults);
+
 shapeSelect.addEventListener('change', () => {
     toggleFields();
     updateResults();
     // Update formula text for selected shape
     const shape = shapeSelect.value;
-    formulaTextEl.innerHTML = formulas[shape] + '<br>Weight = Area × Length × 0.785';
+    const density = parseFloat(densityInput.value) || 7.85;
+    const densityFactorDisplay = (density * 0.1).toFixed(4);
+    formulaTextEl.innerHTML = formulas[shape] + '<br>Weight = Area × Length × ' + densityFactorDisplay;
 });
 
 calculatorForm.addEventListener('input', updateResults);
@@ -299,4 +310,6 @@ toggleFields();
 updateResults();
 // Set initial formula text on page load
 const initialShape = shapeSelect.value;
-formulaTextEl.innerHTML = formulas[initialShape] + '<br>Weight = Area × Length × 0.785';
+const initialDensity = parseFloat(densityInput.value) || 7.85;
+const initialDensityFactorDisplay = (initialDensity * 0.1).toFixed(4);
+formulaTextEl.innerHTML = formulas[initialShape] + '<br>Weight = Area × Length × ' + initialDensityFactorDisplay;
