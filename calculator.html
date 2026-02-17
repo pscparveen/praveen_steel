@@ -63,8 +63,10 @@
                                 <option value="square">Square Bar</option>
                                 <option value="squarePipe">Square Pipe / Hollow</option>
                                 <option value="flat">Flat Bar</option>
+                                <option value="flatHollow">Flat Hollow Bar</option>
                                 <option value="hex">Hex Bar</option>
                                 <option value="cSection">C Section / C Channel</option>
+                                <option value="iSection">I Section / I Beam</option>
                             </select>
                         </div>
                         <div class="form-group" id="diameterGroup">
@@ -154,6 +156,35 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group d-none" id="flatHollowGroup">
+                            <label for="flatHollowOuterWidth">Outer Width (W)</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="flatHollowOuterWidth" min="1" step="0.01" value="100">
+                                <select class="form-select" id="flatHollowOuterWidthUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                            <label for="flatHollowOuterHeight">Outer Height (H)</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="flatHollowOuterHeight" min="1" step="0.01" value="50">
+                                <select class="form-select" id="flatHollowOuterHeightUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                            <label for="flatHollowThickness">Wall Thickness (t)</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="flatHollowThickness" min="0.1" step="0.01" value="5">
+                                <select class="form-select" id="flatHollowThicknessUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group d-none" id="hexGroup">
                             <label for="hexAcrossFlats">Across Flats</label>
                             <div class="input-group">
@@ -197,6 +228,44 @@
                             <div class="input-group">
                                 <input type="number" class="form-control" id="cSectionFlangeThickness" min="0.1" step="0.01" value="8">
                                 <select class="form-select" id="cSectionFlangeThicknessUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="iSectionGroup">
+                            <label for="iSectionHeight">Web Height (H)</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="iSectionHeight" min="1" step="0.01" value="200">
+                                <select class="form-select" id="iSectionHeightUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                            <label for="iSectionFlangeWidth">Flange Width (B)</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="iSectionFlangeWidth" min="1" step="0.01" value="100">
+                                <select class="form-select" id="iSectionFlangeWidthUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                            <label for="iSectionWebThickness">Web Thickness (tw)</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="iSectionWebThickness" min="0.1" step="0.01" value="8">
+                                <select class="form-select" id="iSectionWebThicknessUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                            <label for="iSectionFlangeThickness">Flange Thickness (tf)</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="iSectionFlangeThickness" min="0.1" step="0.01" value="12">
+                                <select class="form-select" id="iSectionFlangeThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
                                     <option value="inch">inch</option>
