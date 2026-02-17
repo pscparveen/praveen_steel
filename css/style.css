@@ -304,27 +304,77 @@ section {
 }
 
 .quick-contact {
-    margin-top: 16px;
+    margin-top: 24px;
     display: flex;
-    gap: 10px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
 .quick-contact-btn {
     text-decoration: none;
-    color: var(--secondary-color);
-    border: 1px solid rgba(27, 38, 53, 0.2);
-    border-radius: 10px;
-    padding: 10px 14px;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
     font-weight: 700;
-    background: #fff;
-    cursor: pointer;
-    transition: var(--transition);
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.quick-contact-btn:hover {
-    background: var(--secondary-color);
-    color: #fff;
+.quick-contact-btn i {
+    font-size: 1.2rem;
+}
+
+/* WhatsApp Style */
+.quick-contact-btn[href*="wa.me"] {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.quick-contact-btn[href*="wa.me"]:hover {
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* Call Style */
+.quick-contact-btn[href*="tel:"] {
+    background: linear-gradient(135deg, #4CC9F0 0%, #3db8db 100%);
+}
+
+.quick-contact-btn[href*="tel:"]:hover {
+    box-shadow: 0 8px 25px rgba(76, 201, 240, 0.4);
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* Email Style */
+.quick-contact-btn[href*="mailto:"] {
+    background: linear-gradient(135deg, #2D3142 0%, #485460 100%);
+}
+
+.quick-contact-btn[href*="mailto:"]:hover {
+    box-shadow: 0 8px 25px rgba(45, 49, 66, 0.4);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.quick-contact-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(45deg) translateY(100%);
+    transition: all 0.6s ease;
+}
+
+.quick-contact-btn:hover::after {
+    transform: translate(-50%, -50%) rotate(45deg) translateY(-100%);
 }
 
 .reveal {

@@ -7,6 +7,9 @@ const squarePipeThicknessGroup = document.getElementById('squarePipeThicknessGro
 const squareGroup = document.getElementById('squareGroup');
 const flatGroup = document.getElementById('flatGroup');
 const hexGroup = document.getElementById('hexGroup');
+const cSectionGroup = document.getElementById('cSectionGroup');
+const iSectionGroup = document.getElementById('iSectionGroup');
+const flatHollowGroup = document.getElementById('flatHollowGroup');
 const weightPerMeterEl = document.getElementById('weightPerMeter');
 const totalWeightEl = document.getElementById('totalWeight');
 const areaEl = document.getElementById('area');
@@ -22,7 +25,10 @@ const formulas = {
     square: 'Area = Side²',
     squarePipe: 'Area = OuterSide² - (OuterSide - 2×t)²',
     flat: 'Area = Width × Thickness',
-    hex: 'Area = (√3 / 2) × AF² = 0.866 × AF²'
+    flatHollow: 'Area = W×H - (W-2t)×(H-2t)',
+    hex: 'Area = (√3 / 2) × AF² = 0.866 × AF²',
+    cSection: 'Area = 2×B×tf + (H-2×tf)×tw',
+    iSection: 'Area = 2×B×tf + (H-2×tf)×tw'
 };
 
 const densityFactor = 0.785; // kg per meter for 1 cm² cross-section (steel density 7.85 g/cm³)
@@ -55,6 +61,9 @@ const toggleFields = () => {
     squareGroup.classList.toggle('d-none', shape !== 'square');
     flatGroup.classList.toggle('d-none', shape !== 'flat');
     hexGroup.classList.toggle('d-none', shape !== 'hex');
+    cSectionGroup.classList.toggle('d-none', shape !== 'cSection');
+    iSectionGroup.classList.toggle('d-none', shape !== 'iSection');
+    flatHollowGroup.classList.toggle('d-none', shape !== 'flatHollow');
 };
 
 const calculateArea = () => {
@@ -104,6 +113,62 @@ const calculateArea = () => {
         const thicknessCm = toCm(thickness, thicknessUnit);
         return widthCm * thicknessCm;
     }
+    if (shape === 'flatHollow') {
+        const outerWidth = parseFloat(document.getElementById('flatHollowOuterWidth').value) || 0;
+        const outerHeight = parseFloat(document.getElementById('flatHollowOuterHeight').value) || 0;
+        const thickness = parseFloat(document.getElementById('flatHollowThickness').value) || 0;
+        const outerWidthUnit = document.getElementById('flatHollowOuterWidthUnit').value;
+        const outerHeightUnit = document.getElementById('flatHollowOuterHeightUnit').value;
+        const thicknessUnit = document.getElementById('flatHollowThicknessUnit').value;
+        const outerWidthCm = toCm(outerWidth, outerWidthUnit);
+        const outerHeightCm = toCm(outerHeight, outerHeightUnit);
+        const thicknessCm = toCm(thickness, thicknessUnit);
+        // Rectangular hollow section area
+        // Outer area - Inner area = W×H - (W-2t)×(H-2t)
+        const outerArea = outerWidthCm * outerHeightCm;
+        const innerWidthCm = outerWidthCm - 2 * thicknessCm;
+        const innerHeightCm = outerHeightCm - 2 * thicknessCm;
+        const innerArea = innerWidthCm * innerHeightCm;
+        return outerArea - innerArea;
+    }
+    if (shape === 'cSection') {
+        const height = parseFloat(document.getElementById('cSectionHeight').value) || 0;
+        const flangeWidth = parseFloat(document.getElementById('cSectionFlangeWidth').value) || 0;
+        const webThickness = parseFloat(document.getElementById('cSectionWebThickness').value) || 0;
+        const flangeThickness = parseFloat(document.getElementById('cSectionFlangeThickness').value) || 0;
+        const heightUnit = document.getElementById('cSectionHeightUnit').value;
+        const flangeWidthUnit = document.getElementById('cSectionFlangeWidthUnit').value;
+        const webThicknessUnit = document.getElementById('cSectionWebThicknessUnit').value;
+        const flangeThicknessUnit = document.getElementById('cSectionFlangeThicknessUnit').value;
+        const heightCm = toCm(height, heightUnit);
+        const flangeWidthCm = toCm(flangeWidth, flangeWidthUnit);
+        const webThicknessCm = toCm(webThickness, webThicknessUnit);
+        const flangeThicknessCm = toCm(flangeThickness, flangeThicknessUnit);
+        // C-channel cross-sectional area
+        // Area = 2 × (flange width × flange thickness) + (web height - 2 × flange thickness) × web thickness
+        const flangeArea = 2 * (flangeWidthCm * flangeThicknessCm);
+        const webArea = (heightCm - 2 * flangeThicknessCm) * webThicknessCm;
+        return flangeArea + webArea;
+    }
+    if (shape === 'iSection') {
+        const height = parseFloat(document.getElementById('iSectionHeight').value) || 0;
+        const flangeWidth = parseFloat(document.getElementById('iSectionFlangeWidth').value) || 0;
+        const webThickness = parseFloat(document.getElementById('iSectionWebThickness').value) || 0;
+        const flangeThickness = parseFloat(document.getElementById('iSectionFlangeThickness').value) || 0;
+        const heightUnit = document.getElementById('iSectionHeightUnit').value;
+        const flangeWidthUnit = document.getElementById('iSectionFlangeWidthUnit').value;
+        const webThicknessUnit = document.getElementById('iSectionWebThicknessUnit').value;
+        const flangeThicknessUnit = document.getElementById('iSectionFlangeThicknessUnit').value;
+        const heightCm = toCm(height, heightUnit);
+        const flangeWidthCm = toCm(flangeWidth, flangeWidthUnit);
+        const webThicknessCm = toCm(webThickness, webThicknessUnit);
+        const flangeThicknessCm = toCm(flangeThickness, flangeThicknessUnit);
+        // I-beam cross-sectional area
+        // Area = 2 × (flange width × flange thickness) + (web height - 2 × flange thickness) × web thickness
+        const flangeArea = 2 * (flangeWidthCm * flangeThicknessCm);
+        const webArea = (heightCm - 2 * flangeThicknessCm) * webThicknessCm;
+        return flangeArea + webArea;
+    }
     const acrossFlats = parseFloat(document.getElementById('hexAcrossFlats').value) || 0;
     const unit = document.getElementById('hexUnit').value;
     const acrossFlatsCm = toCm(acrossFlats, unit);
@@ -144,6 +209,25 @@ const updateResults = () => {
         if (thicknessPercent > 50) {
             hasError = true;
             errorMsg = `Wall thickness (${thicknessPercent.toFixed(1)}%) exceeds 50% of outer side! This would result in a negative inner dimension.`;
+        }
+    }
+
+    if (shape === 'flatHollow') {
+        const outerWidth = parseFloat(document.getElementById('flatHollowOuterWidth').value) || 0;
+        const outerHeight = parseFloat(document.getElementById('flatHollowOuterHeight').value) || 0;
+        const thickness = parseFloat(document.getElementById('flatHollowThickness').value) || 0;
+        const outerWidthUnit = document.getElementById('flatHollowOuterWidthUnit').value;
+        const outerHeightUnit = document.getElementById('flatHollowOuterHeightUnit').value;
+        const thicknessUnit = document.getElementById('flatHollowThicknessUnit').value;
+        const outerWidthCm = toCm(outerWidth, outerWidthUnit);
+        const outerHeightCm = toCm(outerHeight, outerHeightUnit);
+        const thicknessCm = toCm(thickness, thicknessUnit);
+
+        const smallerDimension = Math.min(outerWidthCm, outerHeightCm);
+        const thicknessPercent = (thicknessCm / smallerDimension) * 100;
+        if (thicknessPercent > 50) {
+            hasError = true;
+            errorMsg = `Wall thickness (${thicknessPercent.toFixed(1)}%) exceeds 50% of smaller dimension! This would result in a negative inner dimension.`;
         }
     }
 
