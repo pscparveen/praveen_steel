@@ -288,11 +288,17 @@ unitSelects.forEach((select) => {
     select.addEventListener('change', updateResults);
 });
 
-densityInput.addEventListener('input', updateResults);
+densityInput.addEventListener('input', () => {
+    updateResults();
+    // Save density to localStorage
+    localStorage.setItem('steelCalculatorDensity', densityInput.value);
+});
 
 shapeSelect.addEventListener('change', () => {
     toggleFields();
     updateResults();
+    // Save shape to localStorage
+    localStorage.setItem('steelCalculatorShape', shapeSelect.value);
     // Update formula text for selected shape
     const shape = shapeSelect.value;
     const density = parseFloat(densityInput.value) || 7.85;
@@ -305,6 +311,20 @@ calculatorForm.addEventListener('submit', (event) => {
     event.preventDefault();
     updateResults();
 });
+
+// Load saved preferences from localStorage
+const savedShape = localStorage.getItem('steelCalculatorShape');
+const savedDensity = localStorage.getItem('steelCalculatorDensity');
+
+// Restore saved shape if available
+if (savedShape) {
+    shapeSelect.value = savedShape;
+}
+
+// Restore saved density if available
+if (savedDensity) {
+    densityInput.value = savedDensity;
+}
 
 toggleFields();
 updateResults();
