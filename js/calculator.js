@@ -10,6 +10,7 @@ const hexGroup = document.getElementById('hexGroup');
 const cSectionGroup = document.getElementById('cSectionGroup');
 const iSectionGroup = document.getElementById('iSectionGroup');
 const flatHollowGroup = document.getElementById('flatHollowGroup');
+const angleGroup = document.getElementById('angleGroup');
 const weightPerMeterEl = document.getElementById('weightPerMeter');
 const totalWeightEl = document.getElementById('totalWeight');
 const areaEl = document.getElementById('area');
@@ -28,7 +29,8 @@ const formulas = {
     flatHollow: 'Area = W×H - (W-2t)×(H-2t)',
     hex: 'Area = (√3 / 2) × AF² = 0.866 × AF²',
     cSection: 'Area = 2×B×tf + (H-2×tf)×tw',
-    iSection: 'Area = 2×B×tf + (H-2×tf)×tw'
+    iSection: 'Area = 2×B×tf + (H-2×tf)×tw',
+    angle: 'Area = A×t + B×t - t²'
 };
 
 const densityFactor = 0.785; // kg per meter for 1 cm² cross-section (steel density 7.85 g/cm³)
@@ -64,6 +66,7 @@ const toggleFields = () => {
     cSectionGroup.classList.toggle('d-none', shape !== 'cSection');
     iSectionGroup.classList.toggle('d-none', shape !== 'iSection');
     flatHollowGroup.classList.toggle('d-none', shape !== 'flatHollow');
+    angleGroup.classList.toggle('d-none', shape !== 'angle');
 };
 
 const calculateArea = () => {
@@ -168,6 +171,20 @@ const calculateArea = () => {
         const flangeArea = 2 * (flangeWidthCm * flangeThicknessCm);
         const webArea = (heightCm - 2 * flangeThicknessCm) * webThicknessCm;
         return flangeArea + webArea;
+    }
+    if (shape === 'angle') {
+        const longLeg = parseFloat(document.getElementById('angleLongLeg').value) || 0;
+        const shortLeg = parseFloat(document.getElementById('angleShortLeg').value) || 0;
+        const thickness = parseFloat(document.getElementById('angleThickness').value) || 0;
+        const longLegUnit = document.getElementById('angleLongLegUnit').value;
+        const shortLegUnit = document.getElementById('angleShortLegUnit').value;
+        const thicknessUnit = document.getElementById('angleThicknessUnit').value;
+        const longLegCm = toCm(longLeg, longLegUnit);
+        const shortLegCm = toCm(shortLeg, shortLegUnit);
+        const thicknessCm = toCm(thickness, thicknessUnit);
+        // Equal angle cross-sectional area (L-section)
+        // Area = A×t + B×t - t² (where t is thickness)
+        return (longLegCm * thicknessCm) + (shortLegCm * thicknessCm) - (thicknessCm * thicknessCm);
     }
     const acrossFlats = parseFloat(document.getElementById('hexAcrossFlats').value) || 0;
     const unit = document.getElementById('hexUnit').value;

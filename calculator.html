@@ -68,6 +68,7 @@
                                 <option value="hex">Hex Bar</option>
                                 <option value="cSection">C Section / C Channel</option>
                                 <option value="iSection">I Section / I Beam</option>
+                                <option value="angle">Angle Section / L Beam</option>
                             </select>
                         </div>
                         <div class="form-group" id="diameterGroup">
@@ -267,6 +268,35 @@
                             <div class="input-group">
                                 <input type="number" class="form-control" id="iSectionFlangeThickness" min="0.1" step="0.01" value="12">
                                 <select class="form-select" id="iSectionFlangeThicknessUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="angleGroup">
+                            <label for="angleLongLeg">Long Leg (A)</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="angleLongLeg" min="1" step="0.01" value="75">
+                                <select class="form-select" id="angleLongLegUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                            <label for="angleShortLeg">Short Leg (B)</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="angleShortLeg" min="1" step="0.01" value="50">
+                                <select class="form-select" id="angleShortLegUnit" style="max-width: 100px;">
+                                    <option value="mm" selected>mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="inch">inch</option>
+                                </select>
+                            </div>
+                            <label for="angleThickness">Thickness (t)</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="angleThickness" min="0.1" step="0.01" value="8">
+                                <select class="form-select" id="angleThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
                                     <option value="inch">inch</option>
