@@ -7,6 +7,7 @@ const squarePipeThicknessGroup = document.getElementById('squarePipeThicknessGro
 const squareGroup = document.getElementById('squareGroup');
 const flatGroup = document.getElementById('flatGroup');
 const hexGroup = document.getElementById('hexGroup');
+const cSectionGroup = document.getElementById('cSectionGroup');
 const weightPerMeterEl = document.getElementById('weightPerMeter');
 const totalWeightEl = document.getElementById('totalWeight');
 const areaEl = document.getElementById('area');
@@ -22,7 +23,8 @@ const formulas = {
     square: 'Area = Side²',
     squarePipe: 'Area = OuterSide² - (OuterSide - 2×t)²',
     flat: 'Area = Width × Thickness',
-    hex: 'Area = (√3 / 2) × AF² = 0.866 × AF²'
+    hex: 'Area = (√3 / 2) × AF² = 0.866 × AF²',
+    cSection: 'Area = 2×B×tf + (H-2×tf)×tw'
 };
 
 const densityFactor = 0.785; // kg per meter for 1 cm² cross-section (steel density 7.85 g/cm³)
@@ -55,6 +57,7 @@ const toggleFields = () => {
     squareGroup.classList.toggle('d-none', shape !== 'square');
     flatGroup.classList.toggle('d-none', shape !== 'flat');
     hexGroup.classList.toggle('d-none', shape !== 'hex');
+    cSectionGroup.classList.toggle('d-none', shape !== 'cSection');
 };
 
 const calculateArea = () => {
@@ -103,6 +106,25 @@ const calculateArea = () => {
         const widthCm = toCm(width, widthUnit);
         const thicknessCm = toCm(thickness, thicknessUnit);
         return widthCm * thicknessCm;
+    }
+    if (shape === 'cSection') {
+        const height = parseFloat(document.getElementById('cSectionHeight').value) || 0;
+        const flangeWidth = parseFloat(document.getElementById('cSectionFlangeWidth').value) || 0;
+        const webThickness = parseFloat(document.getElementById('cSectionWebThickness').value) || 0;
+        const flangeThickness = parseFloat(document.getElementById('cSectionFlangeThickness').value) || 0;
+        const heightUnit = document.getElementById('cSectionHeightUnit').value;
+        const flangeWidthUnit = document.getElementById('cSectionFlangeWidthUnit').value;
+        const webThicknessUnit = document.getElementById('cSectionWebThicknessUnit').value;
+        const flangeThicknessUnit = document.getElementById('cSectionFlangeThicknessUnit').value;
+        const heightCm = toCm(height, heightUnit);
+        const flangeWidthCm = toCm(flangeWidth, flangeWidthUnit);
+        const webThicknessCm = toCm(webThickness, webThicknessUnit);
+        const flangeThicknessCm = toCm(flangeThickness, flangeThicknessUnit);
+        // C-channel cross-sectional area
+        // Area = 2 × (flange width × flange thickness) + (web height - 2 × flange thickness) × web thickness
+        const flangeArea = 2 * (flangeWidthCm * flangeThicknessCm);
+        const webArea = (heightCm - 2 * flangeThicknessCm) * webThicknessCm;
+        return flangeArea + webArea;
     }
     const acrossFlats = parseFloat(document.getElementById('hexAcrossFlats').value) || 0;
     const unit = document.getElementById('hexUnit').value;
