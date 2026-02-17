@@ -11,21 +11,37 @@ const updateScrollState = () => {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-    scrollProgress.style.width = `${scrollPercent}%`;
-    navbar.classList.toggle('navbar-scrolled', scrollTop > 20);
-    backToTop.classList.toggle('show', scrollTop > 260);
+    
+    if (scrollProgress) scrollProgress.style.width = `${scrollPercent}%`;
+    if (navbar) navbar.classList.toggle('navbar-scrolled', scrollTop > 20);
+    if (backToTop) backToTop.classList.toggle('show', scrollTop > 260);
 };
 
 const setActiveNav = () => {
     let currentId = '';
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
     sections.forEach((section) => {
         const top = section.offsetTop - 120;
         if (window.scrollY >= top) {
             currentId = section.getAttribute('id');
         }
     });
+
     navLinks.forEach((link) => {
-        const isActive = link.getAttribute('href') === `#${currentId}`;
+        const href = link.getAttribute('href');
+        let isActive = false;
+
+        if (href.includes('#')) {
+            const [path, hash] = href.split('#');
+            const targetPath = path || 'index.html';
+            // Match path and hash
+            isActive = (targetPath === currentPath || (targetPath === 'index.html' && currentPath === '')) && currentId === hash;
+        } else {
+            // Direct page link (like calculator.html)
+            isActive = href === currentPath;
+        }
+        
         link.classList.toggle('active', isActive);
     });
 };
@@ -39,10 +55,12 @@ const revealObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.2 });
 
-revealItems.forEach((item, index) => {
-    item.style.transitionDelay = `${Math.min(index * 60, 240)}ms`;
-    revealObserver.observe(item);
-});
+if (revealItems.length > 0) {
+    revealItems.forEach((item, index) => {
+        item.style.transitionDelay = `${Math.min(index * 60, 240)}ms`;
+        revealObserver.observe(item);
+    });
+}
 
 const animateCounter = (element) => {
     const target = Number(element.getAttribute('data-count')) || 0;
@@ -68,24 +86,30 @@ const metricObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5 });
 
-metricValues.forEach((counter) => metricObserver.observe(counter));
+if (metricValues.length > 0) {
+    metricValues.forEach((counter) => metricObserver.observe(counter));
+}
 
-backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+if (backToTop) {
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
-inquiryForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const name = document.getElementById('customerName').value.trim();
-    const email = document.getElementById('customerEmail').value.trim();
-    const requirement = document.getElementById('customerRequirement').value.trim();
-    const message = document.getElementById('customerMessage').value.trim();
-    const subject = encodeURIComponent(`Inquiry from ${name || 'Website Visitor'}`);
-    const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nRequirement: ${requirement}\nMessage: ${message}`
-    );
-    window.location.href = `mailto:praveensteel@gmail.com?subject=${subject}&body=${body}`;
-});
+if (inquiryForm) {
+    inquiryForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('customerName').value.trim();
+        const email = document.getElementById('customerEmail').value.trim();
+        const requirement = document.getElementById('customerRequirement').value.trim();
+        const message = document.getElementById('customerMessage').value.trim();
+        const subject = encodeURIComponent(`Inquiry from ${name || 'Website Visitor'}`);
+        const body = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\nRequirement: ${requirement}\nMessage: ${message}`
+        );
+        window.location.href = `mailto:praveensteel@gmail.com?subject=${subject}&body=${body}`;
+    });
+}
 
 document.addEventListener('scroll', () => {
     updateScrollState();
