@@ -216,6 +216,25 @@ h6,
     box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
 }
 
+/* Disclaimer Button - Link Style */
+.btn-link-disclaimer {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    padding: 10px 0 0 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-link-disclaimer:hover {
+    color: var(--accent-strong);
+    text-decoration: underline;
+}
+
 /* Section Styling */
 section {
     padding: 100px 0;
