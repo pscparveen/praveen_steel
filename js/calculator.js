@@ -302,8 +302,8 @@ shapeSelect.addEventListener('change', () => {
     // Update formula text for selected shape
     const shape = shapeSelect.value;
     const density = parseFloat(densityInput.value) || 7.85;
-    const densityFactor = (density / 1000).toFixed(4);
-    formulaTextEl.innerHTML = formulas[shape] + '<br>Weight = Area × Length × ' + densityFactor;
+    const densityFactorDisplay = (density * 0.1).toFixed(4);
+    formulaTextEl.innerHTML = formulas[shape] + '<br>Weight = Area × Length × ' + densityFactorDisplay;
 });
 
 calculatorForm.addEventListener('input', updateResults);

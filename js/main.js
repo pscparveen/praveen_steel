@@ -11,7 +11,7 @@ const updateScrollState = () => {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-    
+
     if (scrollProgress) scrollProgress.style.width = `${scrollPercent}%`;
     if (navbar) navbar.classList.toggle('navbar-scrolled', scrollTop > 20);
     if (backToTop) backToTop.classList.toggle('show', scrollTop > 260);
@@ -20,7 +20,7 @@ const updateScrollState = () => {
 const setActiveNav = () => {
     let currentId = '';
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    
+
     sections.forEach((section) => {
         const top = section.offsetTop - 120;
         if (window.scrollY >= top) {
@@ -41,7 +41,7 @@ const setActiveNav = () => {
             // Direct page link (like calculator.html)
             isActive = href === currentPath;
         }
-        
+
         link.classList.toggle('active', isActive);
     });
 };
@@ -99,10 +99,16 @@ if (backToTop) {
 if (inquiryForm) {
     inquiryForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        const name = document.getElementById('customerName').value.trim();
-        const email = document.getElementById('customerEmail').value.trim();
-        const requirement = document.getElementById('customerRequirement').value.trim();
-        const message = document.getElementById('customerMessage').value.trim();
+        const nameField = document.getElementById('customerName');
+        const emailField = document.getElementById('customerEmail');
+        const reqField = document.getElementById('customerRequirement');
+        const msgField = document.getElementById('customerMessage');
+
+        const name = nameField ? nameField.value.trim() : '';
+        const email = emailField ? emailField.value.trim() : '';
+        const requirement = reqField ? reqField.value.trim() : '';
+        const message = msgField ? msgField.value.trim() : '';
+
         const subject = encodeURIComponent(`Inquiry from ${name || 'Website Visitor'}`);
         const body = encodeURIComponent(
             `Name: ${name}\nEmail: ${email}\nRequirement: ${requirement}\nMessage: ${message}`
