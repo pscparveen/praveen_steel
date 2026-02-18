@@ -4,7 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Steel Weight Calculator by Praveen Steel Corporation. Quickly calculate the weight of alloy steel bars, pipes, and sections with precision and customized units.">
+    <title>Steel Weight Calculator | Alloy Steel Online Tool | Praveen Steel Corporation</title>
+    <meta name="description"
+        content="Steel Weight Calculator by Praveen Steel Corporation. Quickly calculate the weight of alloy steel bars, pipes, and sections with precision and customized units.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://praveensteel.com/calculator.html">
+    <meta property="og:title" content="Steel Weight Calculator | Online Steel Weight Tool">
+    <meta property="og:description"
+        content="Estimate steel weight instantly for round, square, flat, hex bars and pipes. Precision industrial calculator.">
+    <meta property="og:image" content="https://praveensteel.com/img/og-image-calculator.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://praveensteel.com/calculator.html">
+    <meta property="twitter:title" content="Steel Weight Calculator | Online Steel Weight Tool">
+    <meta property="twitter:description"
+        content="Estimate steel weight instantly for round, square, flat, hex bars and pipes. Precision industrial calculator.">
+    <meta property="twitter:image" content="https://praveensteel.com/img/og-image-calculator.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Steel Weight Calculator",
+      "operatingSystem": "Web",
+      "applicationCategory": "IndustrialTool",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Praveen Steel Corporation"
+      },
+      "description": "Calculate weight for various steel shapes including Round, Square, Flat, and Hex bars."
+    }
+    </script>
+
+    <!-- Google AdSense Placeholder -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -22,7 +65,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Praveen Steel Corporation" height="50" loading="lazy"></a>
+            <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Praveen Steel Corporation Logo"
+                    title="Praveen Steel Corporation Home" height="50" loading="lazy"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,7 +87,8 @@
         <div class="container">
             <div class="calculator-hero-content">
                 <h1>Steel Weight Calculator</h1>
-                <p>Estimate steel weight instantly for round, square, flat, hex bars and pipes. Select your preferred units for dimensions and length.</p>
+                <p>Estimate steel weight instantly for round, square, flat, hex bars and pipes. Select your preferred
+                    units for dimensions and length.</p>
             </div>
         </div>
     </section>
@@ -59,8 +104,8 @@
                         <div class="form-group">
                             <label for="density">Density (g/cm³)</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="density" min="0.1" step="0.01" value="7.85"
-                                    required>
+                                <input type="number" class="form-control" id="density" min="0.1" step="0.01"
+                                    value="7.85" required>
                                 <span class="input-group-text">g/cm³</span>
                             </div>
                         </div>
@@ -94,7 +139,8 @@
                         <div class="form-group d-none" id="pipeDiameterGroup">
                             <label for="pipeOuterDiameter">Outer Diameter</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="pipeOuterDiameter" min="1" step="0.01" value="60">
+                                <input type="number" class="form-control" id="pipeOuterDiameter" min="1" step="0.01"
+                                    value="60">
                                 <select class="form-select" id="pipeOuterDiameterUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -105,7 +151,8 @@
                         <div class="form-group d-none" id="pipeThicknessGroup">
                             <label for="pipeThickness">Wall Thickness</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="pipeThickness" min="0.1" step="0.01" value="5">
+                                <input type="number" class="form-control" id="pipeThickness" min="0.1" step="0.01"
+                                    value="5">
                                 <select class="form-select" id="pipeThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -116,7 +163,8 @@
                         <div class="form-group d-none" id="squarePipeGroup">
                             <label for="squarePipeOuter">Outer Side</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="squarePipeOuter" min="1" step="0.01" value="60">
+                                <input type="number" class="form-control" id="squarePipeOuter" min="1" step="0.01"
+                                    value="60">
                                 <select class="form-select" id="squarePipeOuterUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -127,7 +175,8 @@
                         <div class="form-group d-none" id="squarePipeThicknessGroup">
                             <label for="squarePipeThickness">Wall Thickness</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="squarePipeThickness" min="0.1" step="0.01" value="5">
+                                <input type="number" class="form-control" id="squarePipeThickness" min="0.1" step="0.01"
+                                    value="5">
                                 <select class="form-select" id="squarePipeThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -138,7 +187,8 @@
                         <div class="form-group d-none" id="squareGroup">
                             <label for="squareSize">Side</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="squareSize" min="1" step="0.01" value="50">
+                                <input type="number" class="form-control" id="squareSize" min="1" step="0.01"
+                                    value="50">
                                 <select class="form-select" id="squareUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -158,7 +208,8 @@
                             </div>
                             <label for="flatThickness">Thickness</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="flatThickness" min="1" step="0.01" value="10">
+                                <input type="number" class="form-control" id="flatThickness" min="1" step="0.01"
+                                    value="10">
                                 <select class="form-select" id="flatThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -169,7 +220,8 @@
                         <div class="form-group d-none" id="flatHollowGroup">
                             <label for="flatHollowOuterWidth">Outer Width (W)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="flatHollowOuterWidth" min="1" step="0.01" value="100">
+                                <input type="number" class="form-control" id="flatHollowOuterWidth" min="1" step="0.01"
+                                    value="100">
                                 <select class="form-select" id="flatHollowOuterWidthUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -178,7 +230,8 @@
                             </div>
                             <label for="flatHollowOuterHeight">Outer Height (H)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="flatHollowOuterHeight" min="1" step="0.01" value="50">
+                                <input type="number" class="form-control" id="flatHollowOuterHeight" min="1" step="0.01"
+                                    value="50">
                                 <select class="form-select" id="flatHollowOuterHeightUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -187,7 +240,8 @@
                             </div>
                             <label for="flatHollowThickness">Wall Thickness (t)</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="flatHollowThickness" min="0.1" step="0.01" value="5">
+                                <input type="number" class="form-control" id="flatHollowThickness" min="0.1" step="0.01"
+                                    value="5">
                                 <select class="form-select" id="flatHollowThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -198,7 +252,8 @@
                         <div class="form-group d-none" id="hexGroup">
                             <label for="hexAcrossFlats">Across Flats</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="hexAcrossFlats" min="1" step="0.01" value="50">
+                                <input type="number" class="form-control" id="hexAcrossFlats" min="1" step="0.01"
+                                    value="50">
                                 <select class="form-select" id="hexUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -209,7 +264,8 @@
                         <div class="form-group d-none" id="cSectionGroup">
                             <label for="cSectionHeight">Web Height (H)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="cSectionHeight" min="1" step="0.01" value="100">
+                                <input type="number" class="form-control" id="cSectionHeight" min="1" step="0.01"
+                                    value="100">
                                 <select class="form-select" id="cSectionHeightUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -218,7 +274,8 @@
                             </div>
                             <label for="cSectionFlangeWidth">Flange Width (B)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="cSectionFlangeWidth" min="1" step="0.01" value="50">
+                                <input type="number" class="form-control" id="cSectionFlangeWidth" min="1" step="0.01"
+                                    value="50">
                                 <select class="form-select" id="cSectionFlangeWidthUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -227,7 +284,8 @@
                             </div>
                             <label for="cSectionWebThickness">Web Thickness (tw)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="cSectionWebThickness" min="0.1" step="0.01" value="5">
+                                <input type="number" class="form-control" id="cSectionWebThickness" min="0.1"
+                                    step="0.01" value="5">
                                 <select class="form-select" id="cSectionWebThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -236,7 +294,8 @@
                             </div>
                             <label for="cSectionFlangeThickness">Flange Thickness (tf)</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="cSectionFlangeThickness" min="0.1" step="0.01" value="8">
+                                <input type="number" class="form-control" id="cSectionFlangeThickness" min="0.1"
+                                    step="0.01" value="8">
                                 <select class="form-select" id="cSectionFlangeThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -247,7 +306,8 @@
                         <div class="form-group d-none" id="iSectionGroup">
                             <label for="iSectionHeight">Web Height (H)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="iSectionHeight" min="1" step="0.01" value="200">
+                                <input type="number" class="form-control" id="iSectionHeight" min="1" step="0.01"
+                                    value="200">
                                 <select class="form-select" id="iSectionHeightUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -256,7 +316,8 @@
                             </div>
                             <label for="iSectionFlangeWidth">Flange Width (B)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="iSectionFlangeWidth" min="1" step="0.01" value="100">
+                                <input type="number" class="form-control" id="iSectionFlangeWidth" min="1" step="0.01"
+                                    value="100">
                                 <select class="form-select" id="iSectionFlangeWidthUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -265,7 +326,8 @@
                             </div>
                             <label for="iSectionWebThickness">Web Thickness (tw)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="iSectionWebThickness" min="0.1" step="0.01" value="8">
+                                <input type="number" class="form-control" id="iSectionWebThickness" min="0.1"
+                                    step="0.01" value="8">
                                 <select class="form-select" id="iSectionWebThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -274,7 +336,8 @@
                             </div>
                             <label for="iSectionFlangeThickness">Flange Thickness (tf)</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="iSectionFlangeThickness" min="0.1" step="0.01" value="12">
+                                <input type="number" class="form-control" id="iSectionFlangeThickness" min="0.1"
+                                    step="0.01" value="12">
                                 <select class="form-select" id="iSectionFlangeThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -285,7 +348,8 @@
                         <div class="form-group d-none" id="angleGroup">
                             <label for="angleLongLeg">Long Leg (A)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="angleLongLeg" min="1" step="0.01" value="75">
+                                <input type="number" class="form-control" id="angleLongLeg" min="1" step="0.01"
+                                    value="75">
                                 <select class="form-select" id="angleLongLegUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -294,7 +358,8 @@
                             </div>
                             <label for="angleShortLeg">Short Leg (B)</label>
                             <div class="input-group mb-2">
-                                <input type="number" class="form-control" id="angleShortLeg" min="1" step="0.01" value="50">
+                                <input type="number" class="form-control" id="angleShortLeg" min="1" step="0.01"
+                                    value="50">
                                 <select class="form-select" id="angleShortLegUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -303,7 +368,8 @@
                             </div>
                             <label for="angleThickness">Thickness (t)</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="angleThickness" min="0.1" step="0.01" value="8">
+                                <input type="number" class="form-control" id="angleThickness" min="0.1" step="0.01"
+                                    value="8">
                                 <select class="form-select" id="angleThicknessUnit" style="max-width: 100px;">
                                     <option value="mm" selected>mm</option>
                                     <option value="cm">cm</option>
@@ -334,7 +400,8 @@
                         </div>
                         <button type="submit" class="btn btn-primary-custom w-100">Calculate Weight</button>
                     </form>
-                    <button type="button" class="btn btn-link-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimerModal">
+                    <button type="button" class="btn btn-link-disclaimer" data-bs-toggle="modal"
+                        data-bs-target="#disclaimerModal">
                         <i class="fas fa-exclamation-circle me-1"></i> View Disclaimer
                     </button>
                 </div>
@@ -365,7 +432,8 @@
             <div class="calculator-help">
                 <div>
                     <h3>Need a custom quote?</h3>
-                    <p>Share the shape, dimensions (diameter/size, wall thickness), length, and steel grade you require.</p>
+                    <p>Share the shape, dimensions (diameter/size, wall thickness), length, and steel grade you require.
+                    </p>
                 </div>
                 <a href="index.html#contact" class="btn btn-outline-light">Request a Quote</a>
             </div>
@@ -378,8 +446,10 @@
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
                     <a href="about.html" class="text-white opacity-75 me-3 text-decoration-none small">About Us</a>
-                    <a href="guides/steel-grades-guide.html" class="text-white opacity-75 me-3 text-decoration-none small">Steel Guide</a>
-                    <a href="privacy.html" class="text-white opacity-75 me-3 text-decoration-none small">Privacy Policy</a>
+                    <a href="guides/steel-grades-guide.html"
+                        class="text-white opacity-75 me-3 text-decoration-none small">Steel Guide</a>
+                    <a href="privacy.html" class="text-white opacity-75 me-3 text-decoration-none small">Privacy
+                        Policy</a>
                     <a href="terms.html" class="text-white opacity-75 text-decoration-none small">Terms of Service</a>
                 </div>
             </div>
@@ -387,7 +457,8 @@
     </footer>
 
     <!-- Disclaimer Modal -->
-    <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-labelledby="disclaimerModalLabel" aria-hidden="true">
+    <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-labelledby="disclaimerModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -397,7 +468,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>The steel weight calculator provided in this app is intended for estimation and general informational purposes only. While every effort has been made to ensure the accuracy of the formulas and calculations, the results may vary due to material grade, manufacturing tolerances, and input errors. This tool does not replace professional engineering judgment, detailed design calculations, or applicable industry standards. Users are solely responsible for verifying the outputs and their suitability for specific projects. The developers of this app assume no liability for any loss, damage, or consequences arising from the use of the calculated results. Always consult a qualified engineer or relevant technical standards before finalizing decisions.</p>
+                    <p>The steel weight calculator provided in this app is intended for estimation and general
+                        informational purposes only. While every effort has been made to ensure the accuracy of the
+                        formulas and calculations, the results may vary due to material grade, manufacturing tolerances,
+                        and input errors. This tool does not replace professional engineering judgment, detailed design
+                        calculations, or applicable industry standards. Users are solely responsible for verifying the
+                        outputs and their suitability for specific projects. The developers of this app assume no
+                        liability for any loss, damage, or consequences arising from the use of the calculated results.
+                        Always consult a qualified engineer or relevant technical standards before finalizing decisions.
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary-custom" data-bs-dismiss="modal">I Understand</button>
