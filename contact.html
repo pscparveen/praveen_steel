@@ -11,6 +11,151 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(76, 201, 240, 0.1);
+            color: #4CC9F0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .location-section {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .location-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -15px;
+        }
+        
+        .map-wrapper,
+        .qr-wrapper {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .map-wrapper {
+            flex: 0 0 66.666667%;
+            max-width: 66.666667%;
+        }
+        
+        .qr-wrapper {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+        }
+        
+        .map-container,
+        .qr-section {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            min-height: 400px;
+        }
+        
+        .qr-section {
+            background: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .qr-section h4 {
+            color: #2D3142;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .qr-section > p {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        
+        .qr-code-wrapper {
+            display: inline-block;
+            padding: 5px;
+            background: white;
+            border-radius: 4px;
+            border: 2px solid #2D3142;
+            margin: auto 0;
+        }
+        
+        .qr-code-wrapper img {
+            display: block;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .scan-hint {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: #adb5bd;
+        }
+        
+        .qr-cta {
+            margin-top: auto;
+            padding-top: 15px;
+        }
+        
+        .qr-cta .btn {
+            width: 100%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .map-wrapper,
+            .qr-wrapper {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .map-container {
+                min-height: 350px;
+            }
+            
+            .qr-section {
+                min-height: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .location-section {
+                margin-top: 30px;
+                padding-top: 30px;
+            }
+            
+            .map-container {
+                min-height: 300px;
+            }
+            
+            .qr-section {
+                padding: 15px;
+            }
+            
+            .qr-code-wrapper img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
@@ -60,6 +205,13 @@
                             <p class="mb-0 text-muted">praveensteel@gmail.com</p>
                         </div>
                     </div>
+                    <div class="info-item reveal">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h6>Business Hours</h6>
+                            <p class="mb-0 text-muted">Monday - Saturday<br>10:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="quick-contact reveal">
@@ -69,12 +221,61 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Location Section -->
+            <div class="location-section">
+                <div class="location-row">
+                    <!-- Google Maps Embed -->
+                    <div class="map-wrapper">
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0123456789!2d77.3134!3d28.3941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce6a1b1b1b1b1%3A0x0!2s1B-225%20B.P.%20NIT%2C%20Faridabad!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Praveen Steel Corporation Location - Google Maps">
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <!-- QR Code Section -->
+                    <div class="qr-wrapper">
+                        <div class="qr-section">
+                            <h4><i class="fas fa-qrcode me-2"></i>Scan for Location</h4>
+                            <p>Scan this QR code with your phone camera to open our location in Google Maps</p>
+                            
+                            <div class="qr-code-wrapper d-flex justify-content-center">
+                                <img 
+                                    src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGD3SAQkxMTk0MGowajeoAgiwAgHxBR2nuuouo9VO8QUdp7rqLqPVTg%26um%3D1%26ie%3DUTF-8%26fb%3D1%26gl%3Din%26sa%3DX%26geocode%3DKRs3vCE-3Aw5MbELzmmcTuXM%26daddr%3DNIT%2C%201B-225%2BB.P%2C%2Bbehind%2BBata%2BPetrol%2BPump%2C%2BBlock%2BB%2C%2BNew%2BIndustrial%2BTwp%2B1%2C%2BNew%2BIndustrial%2BTownship%2C%2BFaridabad%2C%2BHaryana%2B121001" 
+                                    alt="QR Code for Praveen Steel Corporation Google Maps Location - Scan to view on your phone"
+                                >
+                            </div>
+                            
+                            <p class="scan-hint">
+                                <i class="fas fa-mobile-alt me-1"></i>
+                                Works with any QR scanner
+                            </p>
+                            
+                            <div class="qr-cta">
+                                <a href="https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGD3SAQkxMTk0MGowajeoAgiwAgHxBR2nuuouo9VO8QUdp7rqLqPVTg&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KRs3vCE-3Aw5MbELzmmcTuXM&daddr=NIT,+1B-225+B.P,+behind+Bata+Petrol+Pump,+Block+B,+New+Industrial+Twp+1,+New+Industrial+Township,+Faridabad,+Haryana+121001" 
+                                   target="_blank" 
+                                   class="btn btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-2"></i>Open in Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Praveen Steel Corporation. All rights reserved.</p>
+                </div>
                 <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
                     <a href="about.html" class="text-white opacity-75 me-3 text-decoration-none small">About Us</a>
                     <a href="guides/steel-grades-guide.html" class="text-white opacity-75 me-3 text-decoration-none small">Steel Guide</a>
