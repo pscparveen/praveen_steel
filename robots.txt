@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://praveensteel.com/sitemap.xml
+
+Disallow: /cookie-consent.html
+
+

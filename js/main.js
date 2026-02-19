@@ -117,10 +117,52 @@ if (inquiryForm) {
     });
 }
 
+
 document.addEventListener('scroll', () => {
     updateScrollState();
     setActiveNav();
 });
+
+// Cookie Consent Banner Logic
+const initConsentBanner = () => {
+    const cookieConsentKey = 'ps_cookie_consent';
+    const isTechnicalPage = window.location.pathname.includes('technicals');
+    const privacyPath = isTechnicalPage ? '../privacy.html' : 'privacy.html';
+
+    if (localStorage.getItem(cookieConsentKey)) return;
+
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.innerHTML = `
+        <div class="cookie-content">
+            <h4>Cookie Consent</h4>
+            <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies in accordance with our <a href="${privacyPath}" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">Privacy Policy</a>.</p>
+        </div>
+        <div class="cookie-actions">
+            <a href="${privacyPath}" class="cookie-btn cookie-btn-settings">View Policy</a>
+            <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Accept All</button>
+        </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    setTimeout(() => banner.classList.add('show'), 1000);
+
+    const acceptBtn = document.getElementById('acceptCookies');
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem(cookieConsentKey, 'accepted');
+            banner.classList.remove('show');
+            setTimeout(() => banner.remove(), 600);
+        });
+    }
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initConsentBanner);
+} else {
+    initConsentBanner();
+}
 
 updateScrollState();
 setActiveNav();
