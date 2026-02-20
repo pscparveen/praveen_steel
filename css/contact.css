@@ -1,0 +1,146 @@
+/* Contact Page Specific Styles */
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(76, 201, 240, 0.1);
+    color: #4CC9F0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.location-section {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid #e9ecef;
+}
+
+.location-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+.map-wrapper,
+.qr-wrapper {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-wrapper {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
+.qr-wrapper {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.map-container,
+.qr-section {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    min-height: 400px;
+}
+
+.qr-section {
+    background: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.qr-section h4 {
+    color: #2D3142;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.qr-section>p {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.qr-code-wrapper {
+    display: inline-block;
+    padding: 5px;
+    background: white;
+    border-radius: 4px;
+    border: 2px solid #2D3142;
+    margin: auto 0;
+}
+
+.qr-code-wrapper img {
+    display: block;
+    width: 150px;
+    height: 150px;
+}
+
+.scan-hint {
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: #adb5bd;
+}
+
+.qr-cta {
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+.qr-cta .btn {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+
+    .map-wrapper,
+    .qr-wrapper {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .map-container {
+        min-height: 350px;
+    }
+
+    .qr-section {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .location-section {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+    .map-container {
+        min-height: 300px;
+    }
+
+    .qr-section {
+        padding: 15px;
+    }
+
+    .qr-code-wrapper img {
+        width: 120px;
+        height: 120px;
+    }
+}

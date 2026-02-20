@@ -1,0 +1,40 @@
+/* Guides Page Specific Styles */
+
+.guide-section {
+    padding: 60px 0;
+}
+
+.grade-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.toc-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.toc-link {
+    display: block;
+    padding: 10px 0;
+    color: #485460;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.toc-link:hover {
+    color: #00d2ff;
+    padding-left: 5px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .toc-sidebar {
+        position: static;
+        margin-bottom: 30px;
+    }
+}

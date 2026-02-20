@@ -84,3 +84,10 @@ Technical Pages	3	10-15
 Guides/Articles	1	8-10
 Total Pages	~10	25-30
 Words per Page	300-500	600-1000+
+
+
+
+Add cookie banner CSS (CRITICAL)
+Fix ads.txt duplicates (CRITICAL)
+Add SRI hashes to CDN resources (HIGH)
+Add width/height to QR code image (HIGH)

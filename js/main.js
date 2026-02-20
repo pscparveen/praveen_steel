@@ -135,10 +135,11 @@ const initConsentBanner = () => {
     banner.className = 'cookie-banner';
     banner.innerHTML = `
         <div class="cookie-content">
-            <h4>Cookie Consent</h4>
-            <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies in accordance with our <a href="${privacyPath}" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">Privacy Policy</a>.</p>
+            <h4><i class="fas fa-cookie-bite me-2" aria-hidden="true"></i>We Value Your Privacy</h4>
+            <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. <a href="${privacyPath}">Read our Privacy Policy</a></p>
         </div>
         <div class="cookie-actions">
+            <button class="cookie-btn cookie-btn-decline" id="declineCookies">Decline</button>
             <a href="${privacyPath}" class="cookie-btn cookie-btn-settings">View Policy</a>
             <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Accept All</button>
         </div>
@@ -146,14 +147,28 @@ const initConsentBanner = () => {
 
     document.body.appendChild(banner);
 
-    setTimeout(() => banner.classList.add('show'), 1000);
+    // Trigger show class with slight delay for animation
+    setTimeout(() => banner.classList.add('show'), 800);
 
     const acceptBtn = document.getElementById('acceptCookies');
+    const declineBtn = document.getElementById('declineCookies');
+
+    const hideBanner = () => {
+        banner.classList.remove('show');
+        setTimeout(() => banner.remove(), 500);
+    };
+
     if (acceptBtn) {
         acceptBtn.addEventListener('click', () => {
             localStorage.setItem(cookieConsentKey, 'accepted');
-            banner.classList.remove('show');
-            setTimeout(() => banner.remove(), 600);
+            hideBanner();
+        });
+    }
+
+    if (declineBtn) {
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem(cookieConsentKey, 'declined');
+            hideBanner();
         });
     }
 };
@@ -166,3 +181,16 @@ if (document.readyState === 'loading') {
 
 updateScrollState();
 setActiveNav();
+
+// Material Design 3 - Initialize ripple effects
+if (typeof mdc !== 'undefined') {
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.btn-outline-custom'));
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.btn-primary-custom'));
+
+    // Add ripple effect to all buttons
+    document.querySelectorAll('.btn, button, .nav-link').forEach((el) => {
+        if (!el.classList.contains('mdc-button')) {
+            new mdc.ripple.MDCRipple(el);
+        }
+    });
+}

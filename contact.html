@@ -7,155 +7,14 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <title>Contact Us | Praveen Steel Corporation</title>
     <meta name="description" content="Contact Praveen Steel Corporation for quotes, stock availability, and custom steel solutions.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(76, 201, 240, 0.1);
-            color: #4CC9F0;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .location-section {
-            margin-top: 50px;
-            padding-top: 40px;
-            border-top: 1px solid #e9ecef;
-        }
-        
-        .location-row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: -15px;
-        }
-        
-        .map-wrapper,
-        .qr-wrapper {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .map-wrapper {
-            flex: 0 0 66.666667%;
-            max-width: 66.666667%;
-        }
-        
-        .qr-wrapper {
-            flex: 0 0 33.333333%;
-            max-width: 33.333333%;
-        }
-        
-        .map-container,
-        .qr-section {
-            flex: 1;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            min-height: 400px;
-        }
-        
-        .qr-section {
-            background: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .qr-section h4 {
-            color: #2D3142;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .qr-section > p {
-            color: #6c757d;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-        }
-        
-        .qr-code-wrapper {
-            display: inline-block;
-            padding: 5px;
-            background: white;
-            border-radius: 4px;
-            border: 2px solid #2D3142;
-            margin: auto 0;
-        }
-        
-        .qr-code-wrapper img {
-            display: block;
-            width: 150px;
-            height: 150px;
-        }
-        
-        .scan-hint {
-            margin-top: 10px;
-            font-size: 0.75rem;
-            color: #adb5bd;
-        }
-        
-        .qr-cta {
-            margin-top: auto;
-            padding-top: 15px;
-        }
-        
-        .qr-cta .btn {
-            width: 100%;
-        }
-        
-        /* Responsive */
-        @media (max-width: 991px) {
-            .map-wrapper,
-            .qr-wrapper {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-            
-            .map-container {
-                min-height: 350px;
-            }
-            
-            .qr-section {
-                min-height: auto;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .location-section {
-                margin-top: 30px;
-                padding-top: 30px;
-            }
-            
-            .map-container {
-                min-height: 300px;
-            }
-            
-            .qr-section {
-                padding: 15px;
-            }
-            
-            .qr-code-wrapper img {
-                width: 120px;
-                height: 120px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
@@ -215,9 +74,9 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="quick-contact reveal">
-                        <a href="tel:+919818700080" class="quick-contact-btn"><i class="fas fa-phone" aria-hidden="true"></i> Call Now</a>
-                        <a href="mailto:praveensteel@gmail.com" class="quick-contact-btn"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
-                        <a href="https://wa.me/919818700080" class="quick-contact-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+                        <a href="tel:+919818700080" class="quick-contact-btn" role="button" aria-label="Call us at +91 9818700080"><i class="fas fa-phone" aria-hidden="true"></i> <span class="btn-text">Call Now</span></a>
+                        <a href="mailto:praveensteel@gmail.com" class="quick-contact-btn" role="button" aria-label="Send us an email"><i class="fas fa-envelope" aria-hidden="true"></i> <span class="btn-text">Email</span></a>
+                        <a href="https://wa.me/919818700080" class="quick-contact-btn" role="button" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> <span class="btn-text">WhatsApp</span></a>
                     </div>
                 </div>
             </div>
@@ -248,6 +107,8 @@
                                 <img 
                                     src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGD3SAQkxMTk0MGowajeoAgiwAgHxBR2nuuouo9VO8QUdp7rqLqPVTg%26um%3D1%26ie%3DUTF-8%26fb%3D1%26gl%3Din%26sa%3DX%26geocode%3DKRs3vCE-3Aw5MbELzmmcTuXM%26daddr%3DNIT%2C%201B-225%2BB.P%2C%2Bbehind%2BBata%2BPetrol%2BPump%2C%2BBlock%2BB%2C%2BNew%2BIndustrial%2BTwp%2B1%2C%2BNew%2BIndustrial%2BTownship%2C%2BFaridabad%2C%2BHaryana%2B121001" 
                                     alt="QR Code for Praveen Steel Corporation Google Maps Location - Scan to view on your phone"
+                                    width="150"
+                                    height="150"
                                 >
                             </div>
                             
@@ -287,7 +148,9 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Material Design 3 JS -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
