@@ -1,24 +1,5 @@
 /* About Page Specific Styles */
 
-.about-hero {
-    padding-top: 80px;
-}
-
-.about-hero-content {
-    max-width: 800px;
-}
-
-.industry-icon-block {
-    height: 400px;
-    background: linear-gradient(135deg, #1e272e, #485460);
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
 .values-card {
     border-left: 4px solid;
 }

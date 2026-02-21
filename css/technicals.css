@@ -1,46 +1,5 @@
 /* Technical Pages Specific Styles */
 
-.technical-hero {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-}
-
-.decorative-block {
-    height: 300px;
-    background: linear-gradient(45deg, #1e272e, #485460);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.product-card-light {
-    background: rgba(255, 255, 255, 0.95);
-}
-
-.product-card-light h4 {
-    color: #2D3142;
-}
-
-.supply-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    transition: var(--transition);
-}
-
-.supply-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.supply-card h4 {
-    color: #2D3142;
-    margin-top: 15px;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .decorative-block {

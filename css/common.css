@@ -158,18 +158,6 @@ h6,
     opacity: 0.9;
 }
 
-/* Scroll Progress Bar */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    width: 0;
-    background: linear-gradient(90deg, var(--accent-color), #7dd8f5);
-    z-index: 1100;
-    transition: width 0.15s linear;
-}
-
 /* Section Styles */
 section {
     padding: 100px 0;
