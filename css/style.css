@@ -56,6 +56,9 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background-color: var(--bg-muted);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1,
@@ -198,6 +201,14 @@ h6,
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-actions .btn {
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-primary-custom {
@@ -208,6 +219,7 @@ h6,
     color: white;
     border-radius: 5px;
     transition: var(--transition);
+    text-align: center;
 }
 
 .btn-primary-custom:hover {
@@ -568,6 +580,7 @@ footer {
     background: var(--primary-color);
     color: var(--text-light);
     padding: 50px 0 20px;
+    margin-top: auto;
 }
 
 @media (max-width: 768px) {
@@ -638,6 +651,7 @@ footer {
     .calculator-grid {
         grid-template-columns: 1fr;
     }
+
 
     .calculator-hero h1 {
         font-size: 2rem;
@@ -940,19 +954,5 @@ footer {
     .cookie-btn {
         width: 100%;
         text-align: center;
-    }
-}
-
-@media (max-width: 576px) {
-    .cookie-banner {
-        padding: 14px 16px;
-    }
-
-    .cookie-content h4 {
-        font-size: 1rem;
-    }
-
-    .cookie-content p {
-        font-size: 0.8rem;
     }
 }
